@@ -1,0 +1,9 @@
+﻿{
+  "agentId": 2,
+  "agentName": "phuang-MacBook-Pro",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelines.actions.githubusercontent.com/BELf6bxIl2jZW1cTBOqa6gMneXycH6pcDcsUE4C0thf3lF8osw",
+  "gitHubUrl": "https://github.com/aphuang2013/vault-action-exampleapp",
+  "workFolder": "_work"
+}
