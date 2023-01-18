@@ -1,0 +1,64 @@
+{
+    "name": "vault-action",
+    "version": "0.1.0",
+    "description": "A Github Action that allows you to consume vault secrets as secure environment variables.",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "ncc build src/entry.js -o dist",
+        "test": "jest",
+        "test:integration:basic": "jest -c integrationTests/basic/jest.config.js",
+        "test:integration:enterprise": "jest -c integrationTests/enterprise/jest.config.js",
+        "test:e2e": "jest -c integrationTests/e2e/jest.config.js",
+        "test:e2e-tls": "jest -c integrationTests/e2e-tls/jest.config.js"
+    },
+    "files": [
+        "src/**/*",
+        "dist/**/*"
+    ],
+    "release": {
+        "branch": "main",
+        "plugins": [
+            "@semantic-release/commit-analyzer",
+            "@semantic-release/release-notes-generator",
+            "@semantic-release/github",
+            "@semantic-release/npm"
+        ],
+        "ci": false
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hashicorp/vault-action.git"
+    },
+    "keywords": [
+        "hashicorp",
+        "vault",
+        "github",
+        "actions",
+        "github-actions",
+        "javascript"
+    ],
+    "author": "HashiCorp",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/hashicorp/vault-action/issues"
+    },
+    "homepage": "https://github.com/hashicorp/vault-action#readme",
+    "dependencies": {
+        "got": "^11.8.5",
+        "jsonata": "^1.8.6",
+        "jsrsasign": "^10.5.27"
+    },
+    "peerDependencies": {
+        "@actions/core": ">=1 <2"
+    },
+    "devDependencies": {
+        "@actions/core": "^1.10.0",
+        "@types/got": "^9.6.11",
+        "@types/jest": "^28.1.3",
+        "@zeit/ncc": "^0.22.3",
+        "jest": "^28.1.1",
+        "jest-when": "^3.5.2",
+        "mock-http-server": "^1.4.5",
+        "semantic-release": "^19.0.5"
+    }
+}

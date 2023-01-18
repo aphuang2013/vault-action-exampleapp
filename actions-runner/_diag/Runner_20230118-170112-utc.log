@@ -1,0 +1,162 @@
+[2023-01-18 17:01:12Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2023-01-18 17:01:12Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:12Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:12Z INFO HostContext] Well known config file 'Credentials': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.credentials'
+[2023-01-18 17:01:12Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:12Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:12Z INFO HostContext] Well known config file 'Runner': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.runner'
+[2023-01-18 17:01:12Z INFO Listener] Runner is built for OSX (X64) - osx-x64.
+[2023-01-18 17:01:12Z INFO Listener] RuntimeInformation: Darwin 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:08:47 PST 2022; root:xnu-8792.61.2~4/RELEASE_X86_64.
+[2023-01-18 17:01:12Z INFO Listener] Version: 2.300.2
+[2023-01-18 17:01:12Z INFO Listener] Commit: 5b39316bae9c5831bd23ae25cd63bf903488a9d0
+[2023-01-18 17:01:12Z INFO Listener] Culture: en-US
+[2023-01-18 17:01:12Z INFO Listener] UI Culture: en-US
+[2023-01-18 17:01:12Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:12Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:12Z INFO Listener] Validating directory permissions for: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:12Z INFO CommandLineParser] Parse
+[2023-01-18 17:01:12Z INFO CommandLineParser] Parsing 1 args
+[2023-01-18 17:01:12Z INFO CommandLineParser] parsing argument
+[2023-01-18 17:01:12Z INFO CommandLineParser] HasArgs: False
+[2023-01-18 17:01:12Z INFO CommandLineParser] Adding Command: run
+[2023-01-18 17:01:12Z INFO Listener] Arguments parsed
+[2023-01-18 17:01:12Z INFO Runner] ExecuteCommand
+[2023-01-18 17:01:12Z INFO ConfigurationStore] currentAssemblyLocation: /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin/Runner.Listener.dll
+[2023-01-18 17:01:12Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:12Z INFO ConfigurationStore] binPath: /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin
+[2023-01-18 17:01:12Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:12Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:12Z INFO ConfigurationStore] RootFolder: /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner
+[2023-01-18 17:01:12Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:12Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:12Z INFO HostContext] Well known config file 'Runner': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.runner'
+[2023-01-18 17:01:12Z INFO ConfigurationStore] ConfigFilePath: /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.runner
+[2023-01-18 17:01:12Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:12Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:12Z INFO HostContext] Well known config file 'Credentials': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.credentials'
+[2023-01-18 17:01:12Z INFO ConfigurationStore] CredFilePath: /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.credentials
+[2023-01-18 17:01:12Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:12Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:12Z INFO HostContext] Well known config file 'MigratedCredentials': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.credentials_migrated'
+[2023-01-18 17:01:12Z INFO ConfigurationStore] MigratedCredFilePath: /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.credentials_migrated
+[2023-01-18 17:01:12Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:12Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:12Z INFO HostContext] Well known config file 'Service': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.service'
+[2023-01-18 17:01:12Z INFO ConfigurationStore] ServiceConfigFilePath: /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.service
+[2023-01-18 17:01:12Z INFO CommandSettings] Flag 'help': 'False'
+[2023-01-18 17:01:12Z INFO CommandSettings] Flag 'version': 'False'
+[2023-01-18 17:01:12Z INFO CommandSettings] Flag 'commit': 'False'
+[2023-01-18 17:01:12Z INFO CommandSettings] Flag 'check': 'False'
+[2023-01-18 17:01:13Z INFO CommandSettings] Command 'configure': 'False'
+[2023-01-18 17:01:13Z INFO CommandSettings] Command 'remove': 'False'
+[2023-01-18 17:01:13Z INFO CommandSettings] Command 'warmup': 'False'
+[2023-01-18 17:01:13Z INFO ConfigurationManager] LoadSettings
+[2023-01-18 17:01:13Z INFO ConfigurationStore] IsConfigured()
+[2023-01-18 17:01:13Z INFO ConfigurationStore] IsConfigured: True
+[2023-01-18 17:01:13Z INFO ConfigurationManager] Is configured: True
+[2023-01-18 17:01:13Z INFO ConfigurationStore] Read setting file: 310 chars
+[2023-01-18 17:01:13Z INFO ConfigurationManager] Settings Loaded
+[2023-01-18 17:01:13Z INFO ConfigurationStore] IsServiceConfigured()
+[2023-01-18 17:01:13Z INFO ConfigurationStore] IsServiceConfigured: False
+[2023-01-18 17:01:13Z INFO CommandSettings] Command 'run': 'True'
+[2023-01-18 17:01:13Z INFO ConfigurationStore] IsConfigured()
+[2023-01-18 17:01:13Z INFO ConfigurationStore] IsConfigured: True
+[2023-01-18 17:01:13Z INFO ConfigurationManager] Is configured: True
+[2023-01-18 17:01:13Z INFO Runner] Could not parse the argument value '' for StartupType. Defaulting to Manual
+[2023-01-18 17:01:13Z INFO Runner] Set runner startup type - Manual
+[2023-01-18 17:01:13Z INFO CommandSettings] Flag 'once': 'False'
+[2023-01-18 17:01:13Z INFO CommandSettings] Flag 'once': 'False'
+[2023-01-18 17:01:13Z INFO Runner] RunAsync
+[2023-01-18 17:01:13Z INFO ConfigurationManager] LoadSettings
+[2023-01-18 17:01:13Z INFO ConfigurationStore] IsConfigured()
+[2023-01-18 17:01:13Z INFO ConfigurationStore] IsConfigured: True
+[2023-01-18 17:01:13Z INFO ConfigurationManager] Is configured: True
+[2023-01-18 17:01:13Z INFO ConfigurationManager] Settings Loaded
+[2023-01-18 17:01:13Z INFO MessageListener] {
+  "AgentId": 2,
+  "AgentName": "phuang-MacBook-Pro",
+  "PoolId": 1,
+  "PoolName": "Default",
+  "ServerUrl": "https://pipelines.actions.githubusercontent.com/BELf6bxIl2jZW1cTBOqa6gMneXycH6pcDcsUE4C0thf3lF8osw",
+  "GitHubUrl": "https://github.com/aphuang2013/vault-action-exampleapp",
+  "WorkFolder": "_work"
+}
+[2023-01-18 17:01:13Z INFO MessageListener] Loading Credentials
+[2023-01-18 17:01:13Z INFO ConfigurationStore] HasCredentials()
+[2023-01-18 17:01:13Z INFO ConfigurationStore] stored True
+[2023-01-18 17:01:13Z INFO CredentialManager] GetCredentialProvider
+[2023-01-18 17:01:13Z INFO CredentialManager] Creating type OAuth
+[2023-01-18 17:01:13Z INFO CredentialManager] Creating credential type: OAuth
+[2023-01-18 17:01:13Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:13Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:13Z INFO HostContext] Well known config file 'RSACredentials': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.credentials_rsaparams'
+[2023-01-18 17:01:13Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.credentials_rsaparams
+[2023-01-18 17:01:13Z INFO MessageListener] Attempt to create session.
+[2023-01-18 17:01:13Z INFO MessageListener] Connecting to the Runner Server...
+[2023-01-18 17:01:13Z INFO RunnerServer] EstablishVssConnection
+[2023-01-18 17:01:13Z INFO RunnerServer] Establish connection with 100 seconds timeout.
+[2023-01-18 17:01:13Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2023-01-18 17:01:13Z INFO RunnerServer] EstablishVssConnection
+[2023-01-18 17:01:13Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2023-01-18 17:01:13Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2023-01-18 17:01:13Z INFO RunnerServer] EstablishVssConnection
+[2023-01-18 17:01:13Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2023-01-18 17:01:13Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2023-01-18 17:01:13Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2023-01-18 17:01:13Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2023-01-18 17:01:13Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2023-01-18 17:01:13Z INFO MessageListener] VssConnection created
+[2023-01-18 17:01:13Z INFO Terminal] WRITE LINE: 
+[2023-01-18 17:01:13Z INFO Terminal] WRITE LINE: 
+[2023-01-18 17:01:14Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.credentials_rsaparams
+[2023-01-18 17:01:14Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.credentials_rsaparams
+[2023-01-18 17:01:14Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2023-01-18 17:01:14Z INFO MessageListener] Session created.
+[2023-01-18 17:01:14Z INFO Terminal] WRITE LINE: Current runner version: '2.300.2'
+[2023-01-18 17:01:14Z INFO Terminal] WRITE LINE: 2023-01-18 17:01:14Z: Listening for Jobs
+[2023-01-18 17:01:14Z INFO JobDispatcher] Set runner/worker IPC timeout to 30 seconds.
+[2023-01-18 17:01:17Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.credentials_rsaparams
+[2023-01-18 17:01:17Z INFO MessageListener] Message '1' received from session '22471883-65cb-498b-ac5f-46e4239c2146'.
+[2023-01-18 17:01:17Z INFO Runner] Received job message of length 22025 from service, with hash '1a12ad0789f78227f010c6429dac74a2a5b6bc18c2d0ebe32ce816579f388c2c'
+[2023-01-18 17:01:17Z INFO JobDispatcher] Job request 1 for plan 902c079b-1bcd-4552-b926-b0917142a3b2 job ca395085-040a-526b-2ce8-bdc85f692774 received.
+[2023-01-18 17:01:17Z INFO JobDispatcher] Pull OrchestrationId 902c079b-1bcd-4552-b926-b0917142a3b2.build.__default from JWT claims
+[2023-01-18 17:01:17Z INFO Terminal] WRITE LINE: 2023-01-18 17:01:17Z: Running job: build
+[2023-01-18 17:01:17Z INFO JobDispatcher] Start renew job request 1 for job ca395085-040a-526b-2ce8-bdc85f692774.
+[2023-01-18 17:01:17Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 1/18/2023 5:11:18 PM
+[2023-01-18 17:01:17Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:17Z INFO ProcessInvokerWrapper] Starting process:
+[2023-01-18 17:01:17Z INFO ProcessInvokerWrapper]   File name: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin/Runner.Worker'
+[2023-01-18 17:01:17Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 107 110'
+[2023-01-18 17:01:17Z INFO ProcessInvokerWrapper]   Working directory: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:17Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-01-18 17:01:17Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-01-18 17:01:17Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2023-01-18 17:01:17Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-01-18 17:01:17Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-01-18 17:01:17Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-01-18 17:01:17Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2023-01-18 17:01:18Z INFO ProcessInvokerWrapper] Process started with process id 3274, waiting for process exit.
+[2023-01-18 17:01:18Z INFO JobDispatcher] Send job request message to worker for job ca395085-040a-526b-2ce8-bdc85f692774.
+[2023-01-18 17:01:18Z INFO ProcessChannel] Sending message of length 22025, with hash '1a12ad0789f78227f010c6429dac74a2a5b6bc18c2d0ebe32ce816579f388c2c'
+[2023-01-18 17:01:18Z INFO JobNotification] Entering JobStarted Notification
+[2023-01-18 17:01:18Z INFO JobNotification] Entering StartMonitor
+[2023-01-18 17:01:52Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:52Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:52Z INFO ProcessInvokerWrapper] Finished process 3274 with exit code 102, and elapsed time 00:00:34.7752021.
+[2023-01-18 17:01:52Z INFO JobDispatcher] Worker finished for job ca395085-040a-526b-2ce8-bdc85f692774. Code: 102
+[2023-01-18 17:01:52Z INFO JobDispatcher] finish job request for job ca395085-040a-526b-2ce8-bdc85f692774 with result: Failed
+[2023-01-18 17:01:52Z INFO Terminal] WRITE LINE: 2023-01-18 17:01:52Z: Job build completed with result: Failed
+[2023-01-18 17:01:52Z INFO JobDispatcher] Stop renew job request for job ca395085-040a-526b-2ce8-bdc85f692774.
+[2023-01-18 17:01:52Z INFO JobDispatcher] job renew has been cancelled, stop renew job request 1.
+[2023-01-18 17:01:52Z INFO JobNotification] Entering JobCompleted Notification
+[2023-01-18 17:01:52Z INFO JobNotification] Entering EndMonitor
+[2023-01-18 17:04:32Z INFO Terminal] WRITE LINE: Exiting...
+[2023-01-18 17:04:32Z INFO ConfigurationStore] IsServiceConfigured()
+[2023-01-18 17:04:32Z INFO ConfigurationStore] IsServiceConfigured: False
+[2023-01-18 17:04:32Z INFO HostContext] Runner will be shutdown for UserCancelled
+[2023-01-18 17:04:32Z WARN GitHubActionsService] GET request to https://pipelines.actions.githubusercontent.com/BELf6bxIl2jZW1cTBOqa6gMneXycH6pcDcsUE4C0thf3lF8osw/_apis/distributedtask/pools/1/messages?sessionId=22471883-65cb-498b-ac5f-46e4239c2146&lastMessageId=1&status=Online&runnerVersion=2.300.2 has been cancelled.
+[2023-01-18 17:04:32Z INFO MessageListener] Get next message has been cancelled.
+[2023-01-18 17:04:32Z INFO JobDispatcher] Shutting down JobDispatcher. Make sure all WorkerDispatcher has finished.
+[2023-01-18 17:04:32Z INFO JobDispatcher] Ensure WorkerDispather for job ca395085-040a-526b-2ce8-bdc85f692774 run to finish, cancel any running job.
+[2023-01-18 17:04:32Z INFO JobDispatcher] Job request ca395085-040a-526b-2ce8-bdc85f692774 processed succeed.
+[2023-01-18 17:04:32Z INFO Listener] Runner execution been cancelled.

@@ -1,0 +1,84 @@
+name: 'Vault Secrets'
+description: 'A Github Action that allows you to consume HashiCorp Vault™ secrets as secure environment variables'
+inputs:
+  url:
+    description: 'The URL for the vault endpoint'
+    required: true
+  secrets:
+    description: 'A semicolon-separated list of secrets to retrieve. These will automatically be converted to environmental variable keys. See README for more details'
+    required: false
+  namespace:
+    description: 'The Vault namespace from which to query secrets. Vault Enterprise only, unset by default'
+    required: false
+  method:
+    description: 'The method to use to authenticate with Vault.'
+    default: 'token'
+    required: false
+  role:
+    description: 'Vault role for specified auth method'
+    required: false
+  path:
+    description: 'Custom Vault path, if the auth method was mounted at a different path'
+    required: false
+  token:
+    description: 'The Vault Token to be used to authenticate with Vault'
+    required: false
+  roleId:
+    description: 'The Role Id for App Role authentication'
+    required: false
+  secretId:
+    description: 'The Secret Id for App Role authentication'
+    required: false
+  githubToken:
+    description: 'The Github Token to be used to authenticate with Vault'
+    required: false
+  kubernetesTokenPath:
+    description: 'The path to the Kubernetes service account secret'
+    required: false
+    default: '/var/run/secrets/kubernetes.io/serviceaccount/token'
+  authPayload:
+    description: 'The JSON payload to be sent to Vault when using a custom authentication method.'
+    required: false
+  extraHeaders:
+    description: 'A string of newline separated extra headers to include on every request.'
+    required: false
+  exportEnv:
+    description: 'Whether or not export secrets as environment variables.'
+    default: 'true'
+    required: false
+  exportToken:
+    description: 'Whether or not export Vault token as environment variables.'
+    default: 'false'
+    required: false
+  caCertificate:
+    description: 'Base64 encoded CA certificate to verify the Vault server certificate.'
+    required: false
+  clientCertificate:
+    description: 'Base64 encoded client certificate for mTLS communication with the Vault server.'
+    required: false
+  clientKey:
+    description: 'Base64 encoded client key for mTLS communication with the Vault server.'
+    required: false
+  tlsSkipVerify:
+    description: 'When set to true, disables verification of the Vault server certificate.  Setting this to true in production is not recommended.'
+    required: false
+    default: 'false'
+  jwtPrivateKey:
+    description: 'Base64 encoded Private key to sign JWT'
+    required: false
+  jwtKeyPassword:
+    description: 'Password for key stored in jwtPrivateKey (if needed)'
+    required: false
+  jwtGithubAudience:
+    description: 'Identifies the recipient ("aud" claim) that the JWT is intended for'
+    required: false
+  jwtTtl:
+    description: 'Time in seconds, after which token expires'
+    required: false
+    default: 3600
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
+branding:
+  icon: 'unlock'
+  color: 'gray-dark'

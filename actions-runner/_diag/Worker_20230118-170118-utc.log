@@ -1,0 +1,4035 @@
+[2023-01-18 17:01:18Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2023-01-18 17:01:18Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:18Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:18Z INFO HostContext] Well known config file 'Credentials': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.credentials'
+[2023-01-18 17:01:18Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:18Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:18Z INFO HostContext] Well known config file 'Runner': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.runner'
+[2023-01-18 17:01:18Z INFO Worker] Version: 2.300.2
+[2023-01-18 17:01:18Z INFO Worker] Commit: 5b39316bae9c5831bd23ae25cd63bf903488a9d0
+[2023-01-18 17:01:18Z INFO Worker] Culture: en-US
+[2023-01-18 17:01:18Z INFO Worker] UI Culture: en-US
+[2023-01-18 17:01:18Z INFO Worker] Waiting to receive the job message from the channel.
+[2023-01-18 17:01:18Z INFO ProcessChannel] Receiving message of length 22025, with hash '1a12ad0789f78227f010c6429dac74a2a5b6bc18c2d0ebe32ce816579f388c2c'
+[2023-01-18 17:01:18Z INFO Worker] Message received.
+[2023-01-18 17:01:18Z INFO Worker] Job message:
+ {
+  "fileTable": [
+    ".github/workflows/image-builder.yml"
+  ],
+  "mask": [
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    }
+  ],
+  "steps": [
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/checkout",
+        "ref": "v3",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "contextName": "__actions_checkout",
+      "condition": "success()",
+      "id": "a60052d4-79a0-5821-3eeb-84adb9872c5b",
+      "name": "__actions_checkout"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "hashicorp/vault-action",
+        "ref": "v2",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 9,
+        "col": 15,
+        "lit": "Import Secrets"
+      },
+      "contextName": "__hashicorp_vault-action",
+      "inputs": {
+        "type": 2,
+        "file": 1,
+        "line": 12,
+        "col": 11,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 12,
+              "col": 11,
+              "lit": "url"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 12,
+              "col": 16,
+              "lit": "http://127.0.0.1:8200"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 13,
+              "col": 11,
+              "lit": "tlsSkipVerify"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 13,
+              "col": 26,
+              "lit": "true"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 14,
+              "col": 11,
+              "lit": "token"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 14,
+              "col": 18,
+              "expr": "secrets.VAULT_TOKEN"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 15,
+              "col": 11,
+              "lit": "secrets"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 15,
+              "col": 20,
+              "lit": "secret/data/ci app_secret\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "0c134453-1b3c-597f-9b43-d26a5693f23c",
+      "name": "__hashicorp_vault-action"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 17,
+        "col": 15,
+        "lit": "Build Docker Image"
+      },
+      "contextName": "__run",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 18,
+              "col": 14,
+              "expr": "format('docker build . --file Dockerfile --build-arg app_secret=\"{0}\" -t vault-action-exampleapp', env.APP_SECRET)"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "dd23db01-cff6-57a4-373a-5c8097a97333",
+      "name": "__run"
+    }
+  ],
+  "variables": {
+    "VAULT_TOKEN": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.isScheduled": {
+      "value": "False"
+    },
+    "system.servertype": {
+      "value": "Hosted"
+    },
+    "system.culture": {
+      "value": "en-US"
+    },
+    "system.pipelineStartTime": {
+      "value": "2023-01-18 17:01:15+00:00"
+    },
+    "system.runner.lowdiskspacethreshold": {
+      "value": "100"
+    },
+    "DistributedTask.NewActionMetadata": {
+      "value": "true"
+    },
+    "DistributedTask.EnableCompositeActions": {
+      "value": "true"
+    },
+    "DistributedTask.EnhancedAnnotations": {
+      "value": "true"
+    },
+    "DistributedTask.UploadStepSummary": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode12Action": {
+      "value": "true"
+    },
+    "DistributedTask.AllowRunnerContainerHooks": {
+      "value": "true"
+    },
+    "DistributedTask.DeprecateStepOutputCommands": {
+      "value": "true"
+    },
+    "system.teamProjectId": {
+      "value": "00000000-0000-0000-0000-000000000000"
+    },
+    "build.buildId": {
+      "value": "1"
+    },
+    "build.containerId": {
+      "value": "3574824"
+    },
+    "system.workflowFilePath": {
+      "value": ".github/workflows/image-builder.yml"
+    },
+    "system.phaseDisplayName": {
+      "value": "build"
+    },
+    "system.phaseId": {
+      "value": "6884a131-87da-5381-61f3-d7acc3b91d76"
+    },
+    "system.phaseName": {
+      "value": "build"
+    },
+    "system.phaseAttempt": {
+      "value": "1"
+    },
+    "system.jobIdentifier": {
+      "value": "build.__default"
+    },
+    "system.jobAttempt": {
+      "value": "1"
+    },
+    "System.JobPositionInPhase": {
+      "value": "1"
+    },
+    "System.TotalJobsInPhase": {
+      "value": "1"
+    },
+    "system.github.job": {
+      "value": "build"
+    },
+    "system.jobDisplayName": {
+      "value": "build"
+    },
+    "system.jobId": {
+      "value": "ca395085-040a-526b-2ce8-bdc85f692774"
+    },
+    "system.jobName": {
+      "value": "__default"
+    },
+    "system.github.token.permissions": {
+      "value": "{\"Contents\":\"read\",\"Metadata\":\"read\"}"
+    },
+    "system.github.token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.runnerGroupName": {
+      "value": "Default"
+    }
+  },
+  "messageType": "PipelineAgentJobRequest",
+  "plan": {
+    "scopeIdentifier": "00000000-0000-0000-0000-000000000000",
+    "planType": "Actions",
+    "version": 27,
+    "planId": "902c079b-1bcd-4552-b926-b0917142a3b2",
+    "planGroup": "Actions:00000000-0000-0000-0000-000000000000:1",
+    "artifactUri": "vstfs:///Build/Build/1",
+    "artifactLocation": null,
+    "definition": {
+      "_links": {},
+      "id": 3,
+      "name": "vault-action-exampleapp"
+    },
+    "owner": {
+      "_links": {},
+      "id": 3,
+      "name": "aphuang2013"
+    }
+  },
+  "timeline": {
+    "id": "902c079b-1bcd-4552-b926-b0917142a3b2",
+    "changeId": 0,
+    "location": null
+  },
+  "jobId": "ca395085-040a-526b-2ce8-bdc85f692774",
+  "jobDisplayName": "build",
+  "jobName": "__default",
+  "requestId": 1,
+  "lockedUntil": "0001-01-01T00:00:00",
+  "resources": {
+    "endpoints": [
+      {
+        "data": {
+          "ServerId": "fcbe13e5-64db-4643-b1d2-4b784c57c89b",
+          "ServerName": "BELf6bxIl2jZW1cTBOqa6gMneXycH6pcDcsUE4C0thf3lF8osw",
+          "CacheServerUrl": "https://artifactcache.actions.githubusercontent.com/BELf6bxIl2jZW1cTBOqa6gMneXycH6pcDcsUE4C0thf3lF8osw/",
+          "FeedStreamUrl": "https://pipelines.actions.githubusercontent.com/BELf6bxIl2jZW1cTBOqa6gMneXycH6pcDcsUE4C0thf3lF8osw/00000000-0000-0000-0000-000000000000/_apis/distributedtask/hubs/Actions/plans/902c079b-1bcd-4552-b926-b0917142a3b2/timelines/902c079b-1bcd-4552-b926-b0917142a3b2/records/ca395085-040a-526b-2ce8-bdc85f692774/feedstream?api-version=6.0-preview"
+        },
+        "name": "SystemVssConnection",
+        "url": "https://pipelines.actions.githubusercontent.com/BELf6bxIl2jZW1cTBOqa6gMneXycH6pcDcsUE4C0thf3lF8osw/",
+        "authorization": {
+          "parameters": {
+            "AccessToken": ***
+          },
+          "scheme": "OAuth"
+        },
+        "isShared": false,
+        "isReady": true
+      }
+    ]
+  },
+  "contextData": {
+    "github": {
+      "t": 2,
+      "d": [
+        {
+          "k": "ref",
+          "v": "refs/heads/main"
+        },
+        {
+          "k": "sha",
+          "v": "062d3bf9bb0f927139cf58e8a7c1ef36ec0a2ea4"
+        },
+        {
+          "k": "repository",
+          "v": "aphuang2013/vault-action-exampleapp"
+        },
+        {
+          "k": "repository_owner",
+          "v": "aphuang2013"
+        },
+        {
+          "k": "repository_owner_id",
+          "v": "5275224"
+        },
+        {
+          "k": "repositoryUrl",
+          "v": "git://github.com/aphuang2013/vault-action-exampleapp.git"
+        },
+        {
+          "k": "run_id",
+          "v": "3951116833"
+        },
+        {
+          "k": "run_number",
+          "v": "1"
+        },
+        {
+          "k": "retention_days",
+          "v": "90"
+        },
+        {
+          "k": "run_attempt",
+          "v": "1"
+        },
+        {
+          "k": "artifact_cache_size_limit",
+          "v": "10"
+        },
+        {
+          "k": "repository_visibility",
+          "v": "public"
+        },
+        {
+          "k": "repository_id",
+          "v": "590534184"
+        },
+        {
+          "k": "actor_id",
+          "v": "5275224"
+        },
+        {
+          "k": "actor",
+          "v": "aphuang2013"
+        },
+        {
+          "k": "triggering_actor",
+          "v": "aphuang2013"
+        },
+        {
+          "k": "workflow",
+          "v": "ImageBuilder"
+        },
+        {
+          "k": "head_ref",
+          "v": ""
+        },
+        {
+          "k": "base_ref",
+          "v": ""
+        },
+        {
+          "k": "event_name",
+          "v": "push"
+        },
+        {
+          "k": "event",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "after",
+                "v": "062d3bf9bb0f927139cf58e8a7c1ef36ec0a2ea4"
+              },
+              {
+                "k": "base_ref",
+                "v": null
+              },
+              {
+                "k": "before",
+                "v": "feda0ecc3d9fea25d69e405d5671294b8aa3810a"
+              },
+              {
+                "k": "commits",
+                "v": {
+                  "t": 1,
+                  "a": [
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "aphuagn@gmail.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "peter huang"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "aphuagn@gmail.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "peter huang"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "062d3bf9bb0f927139cf58e8a7c1ef36ec0a2ea4"
+                        },
+                        {
+                          "k": "message",
+                          "v": "add something"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2023-01-18T08:57:30-08:00"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "001aa0b53978c2c7318ab594f9bb214918a87108"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/aphuang2013/vault-action-exampleapp/commit/062d3bf9bb0f927139cf58e8a7c1ef36ec0a2ea4"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "compare",
+                "v": "https://github.com/aphuang2013/vault-action-exampleapp/compare/feda0ecc3d9f...062d3bf9bb0f"
+              },
+              {
+                "k": "created",
+                "v": false
+              },
+              {
+                "k": "deleted",
+                "v": false
+              },
+              {
+                "k": "forced",
+                "v": false
+              },
+              {
+                "k": "head_commit",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "author",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "aphuagn@gmail.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "peter huang"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "committer",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "aphuagn@gmail.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "peter huang"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "distinct",
+                      "v": true
+                    },
+                    {
+                      "k": "id",
+                      "v": "062d3bf9bb0f927139cf58e8a7c1ef36ec0a2ea4"
+                    },
+                    {
+                      "k": "message",
+                      "v": "add something"
+                    },
+                    {
+                      "k": "timestamp",
+                      "v": "2023-01-18T08:57:30-08:00"
+                    },
+                    {
+                      "k": "tree_id",
+                      "v": "001aa0b53978c2c7318ab594f9bb214918a87108"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/aphuang2013/vault-action-exampleapp/commit/062d3bf9bb0f927139cf58e8a7c1ef36ec0a2ea4"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "pusher",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "email",
+                      "v": "aphuang2013@users.noreply.github.com"
+                    },
+                    {
+                      "k": "name",
+                      "v": "aphuang2013"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "ref",
+                "v": "refs/heads/main"
+              },
+              {
+                "k": "repository",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "allow_forking",
+                      "v": true
+                    },
+                    {
+                      "k": "archive_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/{archive_format}{/ref}"
+                    },
+                    {
+                      "k": "archived",
+                      "v": false
+                    },
+                    {
+                      "k": "assignees_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/assignees{/user}"
+                    },
+                    {
+                      "k": "blobs_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/git/blobs{/sha}"
+                    },
+                    {
+                      "k": "branches_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/branches{/branch}"
+                    },
+                    {
+                      "k": "clone_url",
+                      "v": "https://github.com/aphuang2013/vault-action-exampleapp.git"
+                    },
+                    {
+                      "k": "collaborators_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/collaborators{/collaborator}"
+                    },
+                    {
+                      "k": "comments_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/comments{/number}"
+                    },
+                    {
+                      "k": "commits_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/commits{/sha}"
+                    },
+                    {
+                      "k": "compare_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/compare/{base}...{head}"
+                    },
+                    {
+                      "k": "contents_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/contents/{+path}"
+                    },
+                    {
+                      "k": "contributors_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/contributors"
+                    },
+                    {
+                      "k": "created_at",
+                      "v": 1674059301.0
+                    },
+                    {
+                      "k": "default_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "deployments_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/deployments"
+                    },
+                    {
+                      "k": "description",
+                      "v": null
+                    },
+                    {
+                      "k": "disabled",
+                      "v": false
+                    },
+                    {
+                      "k": "downloads_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/downloads"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/events"
+                    },
+                    {
+                      "k": "fork",
+                      "v": false
+                    },
+                    {
+                      "k": "forks",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/forks"
+                    },
+                    {
+                      "k": "full_name",
+                      "v": "aphuang2013/vault-action-exampleapp"
+                    },
+                    {
+                      "k": "git_commits_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/git/commits{/sha}"
+                    },
+                    {
+                      "k": "git_refs_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/git/refs{/sha}"
+                    },
+                    {
+                      "k": "git_tags_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/git/tags{/sha}"
+                    },
+                    {
+                      "k": "git_url",
+                      "v": "git://github.com/aphuang2013/vault-action-exampleapp.git"
+                    },
+                    {
+                      "k": "has_discussions",
+                      "v": false
+                    },
+                    {
+                      "k": "has_downloads",
+                      "v": true
+                    },
+                    {
+                      "k": "has_issues",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pages",
+                      "v": false
+                    },
+                    {
+                      "k": "has_projects",
+                      "v": true
+                    },
+                    {
+                      "k": "has_wiki",
+                      "v": true
+                    },
+                    {
+                      "k": "homepage",
+                      "v": null
+                    },
+                    {
+                      "k": "hooks_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/hooks"
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/aphuang2013/vault-action-exampleapp"
+                    },
+                    {
+                      "k": "id",
+                      "v": 590534184.0
+                    },
+                    {
+                      "k": "is_template",
+                      "v": false
+                    },
+                    {
+                      "k": "issue_comment_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/issues/comments{/number}"
+                    },
+                    {
+                      "k": "issue_events_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/issues/events{/number}"
+                    },
+                    {
+                      "k": "issues_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/issues{/number}"
+                    },
+                    {
+                      "k": "keys_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/keys{/key_id}"
+                    },
+                    {
+                      "k": "labels_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/labels{/name}"
+                    },
+                    {
+                      "k": "language",
+                      "v": null
+                    },
+                    {
+                      "k": "languages_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/languages"
+                    },
+                    {
+                      "k": "license",
+                      "v": null
+                    },
+                    {
+                      "k": "master_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "merges_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/merges"
+                    },
+                    {
+                      "k": "milestones_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/milestones{/number}"
+                    },
+                    {
+                      "k": "mirror_url",
+                      "v": null
+                    },
+                    {
+                      "k": "name",
+                      "v": "vault-action-exampleapp"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "R_kgDOIzLWKA"
+                    },
+                    {
+                      "k": "notifications_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/notifications{?since,all,participating}"
+                    },
+                    {
+                      "k": "open_issues",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "open_issues_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "owner",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "avatar_url",
+                            "v": "https://avatars.githubusercontent.com/u/5275224?v=4"
+                          },
+                          {
+                            "k": "email",
+                            "v": "aphuang2013@users.noreply.github.com"
+                          },
+                          {
+                            "k": "events_url",
+                            "v": "https://api.github.com/users/aphuang2013/events{/privacy}"
+                          },
+                          {
+                            "k": "followers_url",
+                            "v": "https://api.github.com/users/aphuang2013/followers"
+                          },
+                          {
+                            "k": "following_url",
+                            "v": "https://api.github.com/users/aphuang2013/following{/other_user}"
+                          },
+                          {
+                            "k": "gists_url",
+                            "v": "https://api.github.com/users/aphuang2013/gists{/gist_id}"
+                          },
+                          {
+                            "k": "gravatar_id",
+                            "v": ""
+                          },
+                          {
+                            "k": "html_url",
+                            "v": "https://github.com/aphuang2013"
+                          },
+                          {
+                            "k": "id",
+                            "v": 5275224.0
+                          },
+                          {
+                            "k": "login",
+                            "v": "aphuang2013"
+                          },
+                          {
+                            "k": "name",
+                            "v": "aphuang2013"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "MDQ6VXNlcjUyNzUyMjQ="
+                          },
+                          {
+                            "k": "organizations_url",
+                            "v": "https://api.github.com/users/aphuang2013/orgs"
+                          },
+                          {
+                            "k": "received_events_url",
+                            "v": "https://api.github.com/users/aphuang2013/received_events"
+                          },
+                          {
+                            "k": "repos_url",
+                            "v": "https://api.github.com/users/aphuang2013/repos"
+                          },
+                          {
+                            "k": "site_admin",
+                            "v": false
+                          },
+                          {
+                            "k": "starred_url",
+                            "v": "https://api.github.com/users/aphuang2013/starred{/owner}{/repo}"
+                          },
+                          {
+                            "k": "subscriptions_url",
+                            "v": "https://api.github.com/users/aphuang2013/subscriptions"
+                          },
+                          {
+                            "k": "type",
+                            "v": "User"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/users/aphuang2013"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "private",
+                      "v": false
+                    },
+                    {
+                      "k": "pulls_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/pulls{/number}"
+                    },
+                    {
+                      "k": "pushed_at",
+                      "v": 1674061082.0
+                    },
+                    {
+                      "k": "releases_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/releases{/id}"
+                    },
+                    {
+                      "k": "size",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "ssh_url",
+                      "v": "git@github.com:aphuang2013/vault-action-exampleapp.git"
+                    },
+                    {
+                      "k": "stargazers",
+                      "v": 1.0
+                    },
+                    {
+                      "k": "stargazers_count",
+                      "v": 1.0
+                    },
+                    {
+                      "k": "stargazers_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/stargazers"
+                    },
+                    {
+                      "k": "statuses_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/statuses/{sha}"
+                    },
+                    {
+                      "k": "subscribers_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/subscribers"
+                    },
+                    {
+                      "k": "subscription_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/subscription"
+                    },
+                    {
+                      "k": "svn_url",
+                      "v": "https://github.com/aphuang2013/vault-action-exampleapp"
+                    },
+                    {
+                      "k": "tags_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/tags"
+                    },
+                    {
+                      "k": "teams_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/teams"
+                    },
+                    {
+                      "k": "topics",
+                      "v": {
+                        "t": 1
+                      }
+                    },
+                    {
+                      "k": "trees_url",
+                      "v": "https://api.github.com/repos/aphuang2013/vault-action-exampleapp/git/trees{/sha}"
+                    },
+                    {
+                      "k": "updated_at",
+                      "v": "2023-01-18T16:28:55Z"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/aphuang2013/vault-action-exampleapp"
+                    },
+                    {
+                      "k": "visibility",
+                      "v": "public"
+                    },
+                    {
+                      "k": "watchers",
+                      "v": 1.0
+                    },
+                    {
+                      "k": "watchers_count",
+                      "v": 1.0
+                    },
+                    {
+                      "k": "web_commit_signoff_required",
+                      "v": false
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "sender",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "avatar_url",
+                      "v": "https://avatars.githubusercontent.com/u/5275224?v=4"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/users/aphuang2013/events{/privacy}"
+                    },
+                    {
+                      "k": "followers_url",
+                      "v": "https://api.github.com/users/aphuang2013/followers"
+                    },
+                    {
+                      "k": "following_url",
+                      "v": "https://api.github.com/users/aphuang2013/following{/other_user}"
+                    },
+                    {
+                      "k": "gists_url",
+                      "v": "https://api.github.com/users/aphuang2013/gists{/gist_id}"
+                    },
+                    {
+                      "k": "gravatar_id",
+                      "v": ""
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/aphuang2013"
+                    },
+                    {
+                      "k": "id",
+                      "v": 5275224.0
+                    },
+                    {
+                      "k": "login",
+                      "v": "aphuang2013"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "MDQ6VXNlcjUyNzUyMjQ="
+                    },
+                    {
+                      "k": "organizations_url",
+                      "v": "https://api.github.com/users/aphuang2013/orgs"
+                    },
+                    {
+                      "k": "received_events_url",
+                      "v": "https://api.github.com/users/aphuang2013/received_events"
+                    },
+                    {
+                      "k": "repos_url",
+                      "v": "https://api.github.com/users/aphuang2013/repos"
+                    },
+                    {
+                      "k": "site_admin",
+                      "v": false
+                    },
+                    {
+                      "k": "starred_url",
+                      "v": "https://api.github.com/users/aphuang2013/starred{/owner}{/repo}"
+                    },
+                    {
+                      "k": "subscriptions_url",
+                      "v": "https://api.github.com/users/aphuang2013/subscriptions"
+                    },
+                    {
+                      "k": "type",
+                      "v": "User"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/users/aphuang2013"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "k": "server_url",
+          "v": "https://github.com"
+        },
+        {
+          "k": "api_url",
+          "v": "https://api.github.com"
+        },
+        {
+          "k": "graphql_url",
+          "v": "https://api.github.com/graphql"
+        },
+        {
+          "k": "ref_name",
+          "v": "main"
+        },
+        {
+          "k": "ref_protected",
+          "v": false
+        },
+        {
+          "k": "ref_type",
+          "v": "branch"
+        },
+        {
+          "k": "secret_source",
+          "v": "Actions"
+        },
+        {
+          "k": "workflow_ref",
+          "v": "aphuang2013/vault-action-exampleapp/.github/workflows/image-builder.yml@refs/heads/main"
+        },
+        {
+          "k": "workflow_sha",
+          "v": "062d3bf9bb0f927139cf58e8a7c1ef36ec0a2ea4"
+        }
+      ]
+    },
+    "run-feature-flags": {
+      "t": 2,
+      "d": [
+        {
+          "k": "actions_use_results_service",
+          "v": false
+        }
+      ]
+    },
+    "partialrerun": false,
+    "needs": {
+      "t": 2
+    },
+    "vars": null,
+    "inputs": {
+      "t": 2
+    },
+    "matrix": null,
+    "strategy": {
+      "t": 2,
+      "d": [
+        {
+          "k": "fail-fast",
+          "v": true
+        },
+        {
+          "k": "job-index",
+          "v": 0.0
+        },
+        {
+          "k": "job-total",
+          "v": 1.0
+        },
+        {
+          "k": "max-parallel",
+          "v": 1.0
+        }
+      ]
+    }
+  }
+}
+[2023-01-18 17:01:18Z INFO JobRunner] Job ID ca395085-040a-526b-2ce8-bdc85f692774
+[2023-01-18 17:01:18Z INFO JobRunner] Creating job server with URL: https://pipelines.actions.githubusercontent.com/BELf6bxIl2jZW1cTBOqa6gMneXycH6pcDcsUE4C0thf3lF8osw/
+[2023-01-18 17:01:19Z INFO ConfigurationStore] currentAssemblyLocation: /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin/Runner.Worker.dll
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:19Z INFO ConfigurationStore] binPath: /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:19Z INFO ConfigurationStore] RootFolder: /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:19Z INFO HostContext] Well known config file 'Runner': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.runner'
+[2023-01-18 17:01:19Z INFO ConfigurationStore] ConfigFilePath: /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.runner
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:19Z INFO HostContext] Well known config file 'Credentials': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.credentials'
+[2023-01-18 17:01:19Z INFO ConfigurationStore] CredFilePath: /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.credentials
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:19Z INFO HostContext] Well known config file 'MigratedCredentials': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.credentials_migrated'
+[2023-01-18 17:01:19Z INFO ConfigurationStore] MigratedCredFilePath: /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.credentials_migrated
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:19Z INFO HostContext] Well known config file 'Service': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.service'
+[2023-01-18 17:01:19Z INFO ConfigurationStore] ServiceConfigFilePath: /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.service
+[2023-01-18 17:01:19Z INFO ConfigurationStore] Read setting file: 310 chars
+[2023-01-18 17:01:19Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2023-01-18 17:01:19Z INFO Worker] Listening for cancel message from the channel.
+[2023-01-18 17:01:19Z INFO Worker] Waiting for the job to complete or for a cancel message from the channel.
+[2023-01-18 17:01:19Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2023-01-18 17:01:19Z INFO JobServer] Creating websocket client ...wss://pipelines.actions.githubusercontent.com/BELf6bxIl2jZW1cTBOqa6gMneXycH6pcDcsUE4C0thf3lF8osw/00000000-0000-0000-0000-000000000000/_apis/distributedtask/hubs/Actions/plans/902c079b-1bcd-4552-b926-b0917142a3b2/timelines/902c079b-1bcd-4552-b926-b0917142a3b2/records/ca395085-040a-526b-2ce8-bdc85f692774/feedstream?api-version=6.0-preview
+[2023-01-18 17:01:19Z INFO JobServer] Attempting to start websocket client with delay 00:00:00.
+[2023-01-18 17:01:19Z INFO JobServerQueue] Start process web console line queue.
+[2023-01-18 17:01:19Z INFO JobServerQueue] Start process file upload queue.
+[2023-01-18 17:01:19Z INFO JobServerQueue] Start results file upload queue.
+[2023-01-18 17:01:19Z INFO JobServerQueue] Starting results-based upload queue...
+[2023-01-18 17:01:19Z INFO JobServerQueue] Start process timeline update queue.
+[2023-01-18 17:01:19Z INFO ExecutionContext] Initialize GitHub context
+[2023-01-18 17:01:19Z INFO ExecutionContext] Initialize Env context
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Diag': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_diag'
+[2023-01-18 17:01:19Z INFO JobRunner] Starting the job execution context.
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:19Z INFO JobRunner] Validating directory permissions for: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Tools': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_tool'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Temp': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_temp'
+[2023-01-18 17:01:19Z INFO JobRunner] Getting job extension.
+[2023-01-18 17:01:19Z INFO JobRunner] Initialize job. Getting all job steps.
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Diag': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_diag'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:19Z INFO HostContext] Well known config file 'Credentials': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.credentials'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:19Z INFO HostContext] Well known config file 'SetupInfo': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/.setup_info'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:19Z INFO PipelineDirectoryManager] Loading tracking config if exists: /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_PipelineMapping/aphuang2013/vault-action-exampleapp/PipelineFolder.json
+[2023-01-18 17:01:19Z INFO PipelineDirectoryManager] Creating a new tracking config file.
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:19Z INFO PipelineDirectoryManager] Creating pipeline directory.
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:19Z INFO PipelineDirectoryManager] Creating workspace directory.
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:19Z INFO JobExtension] Downloading actions
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:19Z INFO HostContext] Well known directory 'Actions': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions'
+[2023-01-18 17:01:20Z INFO JobServer] Successfully started websocket client.
+[2023-01-18 17:01:20Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'cdf47c39-8eca-45b6-a1ce-3f31371fa39d', success rate: 1/1.
+[2023-01-18 17:01:20Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:20Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:20Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:20Z INFO HostContext] Well known directory 'Actions': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions'
+[2023-01-18 17:01:20Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:20Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:20Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:20Z INFO HostContext] Well known directory 'Actions': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions'
+[2023-01-18 17:01:20Z INFO ActionManager] Save archive 'https://api.github.com/repos/actions/checkout/tarball/ac593985615ec2ede58e132d2e21d2b1cbd6127c' into /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions/_temp_c78a5cf3-1a49-4a84-8389-c436910501ac/59f10b6b-fea2-41eb-9b64-e75ae4e7beb3.tar.gz.
+[2023-01-18 17:01:20Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'cdf47c39-8eca-45b6-a1ce-3f31371fa39d', success rate: 1/1.
+[2023-01-18 17:01:20Z INFO JobServerQueue] Job timeline record has been updated for the first time.
+[2023-01-18 17:01:23Z INFO ActionManager] Which: 'tar'
+[2023-01-18 17:01:23Z INFO ActionManager] Location: '/usr/bin/tar'
+[2023-01-18 17:01:23Z INFO ProcessInvokerWrapper] Starting process:
+[2023-01-18 17:01:23Z INFO ProcessInvokerWrapper]   File name: '/usr/bin/tar'
+[2023-01-18 17:01:23Z INFO ProcessInvokerWrapper]   Arguments: '-xzf "/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions/_temp_c78a5cf3-1a49-4a84-8389-c436910501ac/59f10b6b-fea2-41eb-9b64-e75ae4e7beb3.tar.gz"'
+[2023-01-18 17:01:23Z INFO ProcessInvokerWrapper]   Working directory: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions/_temp_c78a5cf3-1a49-4a84-8389-c436910501ac/_staging'
+[2023-01-18 17:01:23Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-01-18 17:01:23Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-01-18 17:01:23Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-01-18 17:01:23Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-01-18 17:01:23Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-01-18 17:01:23Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-01-18 17:01:23Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-01-18 17:01:23Z INFO ProcessInvokerWrapper] Process started with process id 3528, waiting for process exit.
+[2023-01-18 17:01:24Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:24Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:24Z INFO ProcessInvokerWrapper] Finished process 3528 with exit code 0, and elapsed time 00:00:00.1017669.
+[2023-01-18 17:01:24Z INFO ActionManager] Finished getting action repository.
+[2023-01-18 17:01:24Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:24Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:24Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:24Z INFO HostContext] Well known directory 'Actions': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions'
+[2023-01-18 17:01:24Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:24Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:24Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:24Z INFO HostContext] Well known directory 'Actions': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions'
+[2023-01-18 17:01:24Z INFO ActionManager] Save archive 'https://api.github.com/repos/hashicorp/vault-action/tarball/8fa61e909919a3f94952e9e07ace6b5a1114440b' into /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions/_temp_1bacdf32-647f-4dc6-85e3-15692d174210/fab2bb19-0484-484b-99bc-d47094002c55.tar.gz.
+[2023-01-18 17:01:24Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'cdf47c39-8eca-45b6-a1ce-3f31371fa39d', success rate: 1/1.
+[2023-01-18 17:01:25Z INFO ActionManager] Which: 'tar'
+[2023-01-18 17:01:25Z INFO ActionManager] Location: '/usr/bin/tar'
+[2023-01-18 17:01:25Z INFO ProcessInvokerWrapper] Starting process:
+[2023-01-18 17:01:25Z INFO ProcessInvokerWrapper]   File name: '/usr/bin/tar'
+[2023-01-18 17:01:25Z INFO ProcessInvokerWrapper]   Arguments: '-xzf "/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions/_temp_1bacdf32-647f-4dc6-85e3-15692d174210/fab2bb19-0484-484b-99bc-d47094002c55.tar.gz"'
+[2023-01-18 17:01:25Z INFO ProcessInvokerWrapper]   Working directory: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions/_temp_1bacdf32-647f-4dc6-85e3-15692d174210/_staging'
+[2023-01-18 17:01:25Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-01-18 17:01:25Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-01-18 17:01:25Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-01-18 17:01:25Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-01-18 17:01:25Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-01-18 17:01:25Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-01-18 17:01:25Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-01-18 17:01:25Z INFO ProcessInvokerWrapper] Process started with process id 3594, waiting for process exit.
+[2023-01-18 17:01:25Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:25Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:25Z INFO ProcessInvokerWrapper] Finished process 3594 with exit code 0, and elapsed time 00:00:00.0540496.
+[2023-01-18 17:01:25Z INFO ActionManager] Finished getting action repository.
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Actions': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions'
+[2023-01-18 17:01:25Z INFO ActionManifestManager] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "output-definition",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "run-step",
+  "uses-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "boolean-steps-context",
+  "step-env",
+  "step-if",
+  "step-with"
+]
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Actions': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions'
+[2023-01-18 17:01:25Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 58,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 62,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2023-01-18 17:01:25Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Actions': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions'
+[2023-01-18 17:01:25Z INFO ActionManager] Load action that reference repository from '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions/actions/checkout/v3'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Actions': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions'
+[2023-01-18 17:01:25Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 58,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 62,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2023-01-18 17:01:25Z INFO ActionManager] Action pre node.js file: N/A.
+[2023-01-18 17:01:25Z INFO ActionManager] Action node.js file: dist/index.js.
+[2023-01-18 17:01:25Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Actions': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Actions': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions'
+[2023-01-18 17:01:25Z INFO ActionManifestManager] Ignore action property branding.
+[2023-01-18 17:01:25Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Vault Secrets",
+  "description": "A Github Action that allows you to consume HashiCorp Vault™ secrets as secure environment variables",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 4,
+          "col": 3,
+          "lit": "url"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 7,
+          "col": 3,
+          "lit": "secrets"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 10,
+          "col": 3,
+          "lit": "namespace"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 13,
+          "col": 3,
+          "lit": "method"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 15,
+          "col": 14,
+          "lit": "token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 17,
+          "col": 3,
+          "lit": "role"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 20,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 23,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 26,
+          "col": 3,
+          "lit": "roleId"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 29,
+          "col": 3,
+          "lit": "secretId"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 32,
+          "col": 3,
+          "lit": "githubToken"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 35,
+          "col": 3,
+          "lit": "kubernetesTokenPath"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 38,
+          "col": 14,
+          "lit": "/var/run/secrets/kubernetes.io/serviceaccount/token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 39,
+          "col": 3,
+          "lit": "authPayload"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 42,
+          "col": 3,
+          "lit": "extraHeaders"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 45,
+          "col": 3,
+          "lit": "exportEnv"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 49,
+          "col": 3,
+          "lit": "exportToken"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 51,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 53,
+          "col": 3,
+          "lit": "caCertificate"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 56,
+          "col": 3,
+          "lit": "clientCertificate"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 59,
+          "col": 3,
+          "lit": "clientKey"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 62,
+          "col": 3,
+          "lit": "tlsSkipVerify"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 65,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 66,
+          "col": 3,
+          "lit": "jwtPrivateKey"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 69,
+          "col": 3,
+          "lit": "jwtKeyPassword"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 72,
+          "col": 3,
+          "lit": "jwtGithubAudience"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 75,
+          "col": 3,
+          "lit": "jwtTtl"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 78,
+          "col": 14,
+          "lit": "3600"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": null,
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2023-01-18 17:01:25Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Actions': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions'
+[2023-01-18 17:01:25Z INFO ActionManager] Load action that reference repository from '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions/hashicorp/vault-action/v2'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Actions': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions'
+[2023-01-18 17:01:25Z INFO ActionManifestManager] Ignore action property branding.
+[2023-01-18 17:01:25Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Vault Secrets",
+  "description": "A Github Action that allows you to consume HashiCorp Vault™ secrets as secure environment variables",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 4,
+          "col": 3,
+          "lit": "url"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 7,
+          "col": 3,
+          "lit": "secrets"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 10,
+          "col": 3,
+          "lit": "namespace"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 13,
+          "col": 3,
+          "lit": "method"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 15,
+          "col": 14,
+          "lit": "token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 17,
+          "col": 3,
+          "lit": "role"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 20,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 23,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 26,
+          "col": 3,
+          "lit": "roleId"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 29,
+          "col": 3,
+          "lit": "secretId"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 32,
+          "col": 3,
+          "lit": "githubToken"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 35,
+          "col": 3,
+          "lit": "kubernetesTokenPath"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 38,
+          "col": 14,
+          "lit": "/var/run/secrets/kubernetes.io/serviceaccount/token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 39,
+          "col": 3,
+          "lit": "authPayload"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 42,
+          "col": 3,
+          "lit": "extraHeaders"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 45,
+          "col": 3,
+          "lit": "exportEnv"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 49,
+          "col": 3,
+          "lit": "exportToken"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 51,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 53,
+          "col": 3,
+          "lit": "caCertificate"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 56,
+          "col": 3,
+          "lit": "clientCertificate"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 59,
+          "col": 3,
+          "lit": "clientKey"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 62,
+          "col": 3,
+          "lit": "tlsSkipVerify"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 65,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 66,
+          "col": 3,
+          "lit": "jwtPrivateKey"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 69,
+          "col": 3,
+          "lit": "jwtKeyPassword"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 72,
+          "col": 3,
+          "lit": "jwtGithubAudience"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 75,
+          "col": 3,
+          "lit": "jwtTtl"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 78,
+          "col": 14,
+          "lit": "3600"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": null,
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2023-01-18 17:01:25Z INFO ActionManager] Action pre node.js file: N/A.
+[2023-01-18 17:01:25Z INFO ActionManager] Action node.js file: dist/index.js.
+[2023-01-18 17:01:25Z INFO ActionManager] Action post node.js file: N/A.
+[2023-01-18 17:01:25Z INFO JobExtension] Adding .
+[2023-01-18 17:01:25Z INFO JobExtension] Adding .
+[2023-01-18 17:01:25Z INFO JobExtension] Adding .
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Diag': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_diag'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Diag': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_diag'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Diag': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_diag'
+[2023-01-18 17:01:25Z INFO JobExtension] Total accessible running process: 418.
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:25Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "setup_job",
+  "type": "runner",
+  "stage": "Pre",
+  "stepId": "cdf47c39-8eca-45b6-a1ce-3f31371fa39d",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 7,
+  "startTime": "2023-01-18T17:01:19.785434Z",
+  "finishTime": "2023-01-18T17:01:25.912507Z"
+}.
+[2023-01-18 17:01:25Z INFO JobRunner] Total job steps: 3.
+[2023-01-18 17:01:25Z INFO JobRunner] Run all job steps.
+[2023-01-18 17:01:25Z INFO StepsRunner] Processing step: DisplayName='Run actions/checkout@v3'
+[2023-01-18 17:01:25Z INFO StepsRunner] Evaluating: success()
+[2023-01-18 17:01:25Z INFO StepsRunner] Result: true
+[2023-01-18 17:01:25Z INFO StepsRunner] Starting the step.
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Actions': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions'
+[2023-01-18 17:01:25Z INFO ActionManager] Load action that reference repository from '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions/actions/checkout/v3'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Actions': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions'
+[2023-01-18 17:01:25Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 58,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 62,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2023-01-18 17:01:25Z INFO ActionManager] Action pre node.js file: N/A.
+[2023-01-18 17:01:25Z INFO ActionManager] Action node.js file: dist/index.js.
+[2023-01-18 17:01:25Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2023-01-18 17:01:25Z INFO ExecutionContext] Reserve record order 5 to 8 for post job actions.
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Diag': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_diag'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Temp': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_temp'
+[2023-01-18 17:01:25Z INFO ExecutionContext] Write event payload to /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_temp/_github_workflow/event.json
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:25Z INFO HostContext] Well known directory 'Temp': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_temp'
+[2023-01-18 17:01:25Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2023-01-18 17:01:25Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathFileCommand, Runner.Worker
+[2023-01-18 17:01:25Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvFileCommand, Runner.Worker
+[2023-01-18 17:01:25Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.CreateStepSummaryCommand, Runner.Worker
+[2023-01-18 17:01:25Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateFileCommand, Runner.Worker
+[2023-01-18 17:01:25Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputFileCommand, Runner.Worker
+[2023-01-18 17:01:25Z INFO ActionManifestManager] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "aphuang2013/vault-action-exampleapp"
+}
+[2023-01-18 17:01:25Z INFO ActionManifestManager] Input 'ref': default value evaluate result: ""
+[2023-01-18 17:01:25Z INFO ActionManifestManager] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2023-01-18 17:01:25Z INFO ActionManifestManager] Input 'ssh-key': default value evaluate result: ""
+[2023-01-18 17:01:25Z INFO ActionManifestManager] Input 'ssh-known-hosts': default value evaluate result: ""
+[2023-01-18 17:01:25Z INFO ActionManifestManager] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2023-01-18 17:01:25Z INFO ActionManifestManager] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 50,
+  "col": 14,
+  "lit": "true"
+}
+[2023-01-18 17:01:25Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2023-01-18 17:01:25Z INFO ActionManifestManager] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 55,
+  "col": 14,
+  "lit": "true"
+}
+[2023-01-18 17:01:25Z INFO ActionManifestManager] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 58,
+  "col": 14,
+  "lit": "1"
+}
+[2023-01-18 17:01:25Z INFO ActionManifestManager] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 61,
+  "col": 14,
+  "lit": "false"
+}
+[2023-01-18 17:01:25Z INFO ActionManifestManager] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 70,
+  "col": 14,
+  "lit": "false"
+}
+[2023-01-18 17:01:25Z INFO ActionManifestManager] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2023-01-18 17:01:25Z INFO ActionManifestManager] Input 'github-server-url': default value evaluate result: ""
+[2023-01-18 17:01:25Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2023-01-18 17:01:25Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.InternalPluginSetRepoPathCommandExtension, Runner.Worker
+[2023-01-18 17:01:25Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvCommandExtension, Runner.Worker
+[2023-01-18 17:01:25Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputCommandExtension, Runner.Worker
+[2023-01-18 17:01:25Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateCommandExtension, Runner.Worker
+[2023-01-18 17:01:25Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathCommandExtension, Runner.Worker
+[2023-01-18 17:01:25Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMaskCommandExtension, Runner.Worker
+[2023-01-18 17:01:25Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMatcherCommandExtension, Runner.Worker
+[2023-01-18 17:01:25Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.RemoveMatcherCommandExtension, Runner.Worker
+[2023-01-18 17:01:25Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.WarningCommandExtension, Runner.Worker
+[2023-01-18 17:01:25Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.ErrorCommandExtension, Runner.Worker
+[2023-01-18 17:01:25Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.NoticeCommandExtension, Runner.Worker
+[2023-01-18 17:01:25Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.DebugCommandExtension, Runner.Worker
+[2023-01-18 17:01:25Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.GroupCommandExtension, Runner.Worker
+[2023-01-18 17:01:25Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EndGroupCommandExtension, Runner.Worker
+[2023-01-18 17:01:25Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EchoCommandExtension, Runner.Worker
+[2023-01-18 17:01:25Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2023-01-18 17:01:25Z INFO ActionCommandManager] Register action command extension for command set-env
+[2023-01-18 17:01:25Z INFO ActionCommandManager] Register action command extension for command set-output
+[2023-01-18 17:01:25Z INFO ActionCommandManager] Register action command extension for command save-state
+[2023-01-18 17:01:25Z INFO ActionCommandManager] Register action command extension for command add-path
+[2023-01-18 17:01:25Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2023-01-18 17:01:25Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2023-01-18 17:01:25Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2023-01-18 17:01:25Z INFO ActionCommandManager] Register action command extension for command warning
+[2023-01-18 17:01:25Z INFO ActionCommandManager] Register action command extension for command error
+[2023-01-18 17:01:25Z INFO ActionCommandManager] Register action command extension for command notice
+[2023-01-18 17:01:25Z INFO ActionCommandManager] Register action command extension for command debug
+[2023-01-18 17:01:25Z INFO ActionCommandManager] Register action command extension for command group
+[2023-01-18 17:01:25Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2023-01-18 17:01:25Z INFO ActionCommandManager] Register action command extension for command echo
+[2023-01-18 17:01:26Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:26Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:26Z INFO HostContext] Well known directory 'Externals': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/externals'
+[2023-01-18 17:01:26Z INFO ProcessInvokerWrapper] Starting process:
+[2023-01-18 17:01:26Z INFO ProcessInvokerWrapper]   File name: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/externals/node16/bin/node'
+[2023-01-18 17:01:26Z INFO ProcessInvokerWrapper]   Arguments: '"/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions/actions/checkout/v3/dist/index.js"'
+[2023-01-18 17:01:26Z INFO ProcessInvokerWrapper]   Working directory: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/vault-action-exampleapp/vault-action-exampleapp'
+[2023-01-18 17:01:26Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-01-18 17:01:26Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-01-18 17:01:26Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-01-18 17:01:26Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-01-18 17:01:26Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-01-18 17:01:26Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-01-18 17:01:26Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-01-18 17:01:26Z INFO ProcessInvokerWrapper] Process started with process id 3611, waiting for process exit.
+[2023-01-18 17:01:26Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:26Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2023-01-18 17:01:28Z INFO AddMaskCommandExtension] Add new secret mask with length of 76
+[2023-01-18 17:01:28Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:28Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:28Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:29Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:29Z INFO JobServerQueue] Try to append 3 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 3/3.
+[2023-01-18 17:01:30Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:30Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:31Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:31Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:32Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:33Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:33Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:33Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:34Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:34Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:35Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:35Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:35Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:35Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:35Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:37Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:38Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:38Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:39Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:39Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:39Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:39Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:40Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:40Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:40Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:40Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:41Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:41Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:41Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:41Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:42Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:42Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:42Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:42Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:43Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:43Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:43Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:44Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:44Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:44Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:44Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:45Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:45Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:45Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:45Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:45Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:45Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:45Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:45Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:45Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:45Z INFO ProcessInvokerWrapper] Finished process 3611 with exit code 0, and elapsed time 00:00:19.9745928.
+[2023-01-18 17:01:46Z INFO CreateStepSummaryCommand] Step Summary file (/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_temp/_runner_file_commands/step_summary_ceb6fc1c-11af-4b6b-b4f7-232cc321402d) is empty; skipping attachment upload
+[2023-01-18 17:01:46Z INFO StepsRunner] Step result: 
+[2023-01-18 17:01:46Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v3",
+  "type": "node16",
+  "stage": "Main",
+  "stepId": "a60052d4-79a0-5821-3eeb-84adb9872c5b",
+  "stepContextName": "__actions_checkout",
+  "hasPreStep": false,
+  "hasPostStep": true,
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 21,
+  "startTime": "2023-01-18T17:01:25.935677Z",
+  "finishTime": "2023-01-18T17:01:46.037955Z"
+}.
+[2023-01-18 17:01:46Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2023-01-18 17:01:46Z INFO StepsRunner] Current state: job state = ''
+[2023-01-18 17:01:46Z INFO StepsRunner] Processing step: DisplayName='Import Secrets'
+[2023-01-18 17:01:46Z INFO StepsRunner] Evaluating: success()
+[2023-01-18 17:01:46Z INFO StepsRunner] Result: true
+[2023-01-18 17:01:46Z INFO StepsRunner] Starting the step.
+[2023-01-18 17:01:46Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:46Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:46Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:46Z INFO HostContext] Well known directory 'Actions': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions'
+[2023-01-18 17:01:46Z INFO ActionManager] Load action that reference repository from '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions/hashicorp/vault-action/v2'
+[2023-01-18 17:01:46Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:46Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:46Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:46Z INFO HostContext] Well known directory 'Actions': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions'
+[2023-01-18 17:01:46Z INFO ActionManifestManager] Ignore action property branding.
+[2023-01-18 17:01:46Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Vault Secrets",
+  "description": "A Github Action that allows you to consume HashiCorp Vault™ secrets as secure environment variables",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 4,
+          "col": 3,
+          "lit": "url"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 7,
+          "col": 3,
+          "lit": "secrets"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 10,
+          "col": 3,
+          "lit": "namespace"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 13,
+          "col": 3,
+          "lit": "method"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 15,
+          "col": 14,
+          "lit": "token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 17,
+          "col": 3,
+          "lit": "role"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 20,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 23,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 26,
+          "col": 3,
+          "lit": "roleId"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 29,
+          "col": 3,
+          "lit": "secretId"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 32,
+          "col": 3,
+          "lit": "githubToken"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 35,
+          "col": 3,
+          "lit": "kubernetesTokenPath"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 38,
+          "col": 14,
+          "lit": "/var/run/secrets/kubernetes.io/serviceaccount/token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 39,
+          "col": 3,
+          "lit": "authPayload"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 42,
+          "col": 3,
+          "lit": "extraHeaders"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 45,
+          "col": 3,
+          "lit": "exportEnv"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 49,
+          "col": 3,
+          "lit": "exportToken"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 51,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 53,
+          "col": 3,
+          "lit": "caCertificate"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 56,
+          "col": 3,
+          "lit": "clientCertificate"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 59,
+          "col": 3,
+          "lit": "clientKey"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 62,
+          "col": 3,
+          "lit": "tlsSkipVerify"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 65,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 66,
+          "col": 3,
+          "lit": "jwtPrivateKey"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 69,
+          "col": 3,
+          "lit": "jwtKeyPassword"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 72,
+          "col": 3,
+          "lit": "jwtGithubAudience"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 75,
+          "col": 3,
+          "lit": "jwtTtl"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 78,
+          "col": 14,
+          "lit": "3600"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": null,
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2023-01-18 17:01:46Z INFO ActionManager] Action pre node.js file: N/A.
+[2023-01-18 17:01:46Z INFO ActionManager] Action node.js file: dist/index.js.
+[2023-01-18 17:01:46Z INFO ActionManager] Action post node.js file: N/A.
+[2023-01-18 17:01:46Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:46Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:46Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:46Z INFO HostContext] Well known directory 'Temp': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_temp'
+[2023-01-18 17:01:46Z INFO ExecutionContext] Write event payload to /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_temp/_github_workflow/event.json
+[2023-01-18 17:01:46Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:46Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:46Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:46Z INFO HostContext] Well known directory 'Temp': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_temp'
+[2023-01-18 17:01:46Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2023-01-18 17:01:46Z INFO ActionManifestManager] Input 'namespace': default value evaluate result: ""
+[2023-01-18 17:01:46Z INFO ActionManifestManager] Input 'method': default value evaluate result: {
+  "type": 0,
+  "file": 3,
+  "line": 15,
+  "col": 14,
+  "lit": "token"
+}
+[2023-01-18 17:01:46Z INFO ActionManifestManager] Input 'role': default value evaluate result: ""
+[2023-01-18 17:01:46Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2023-01-18 17:01:46Z INFO ActionManifestManager] Input 'roleId': default value evaluate result: ""
+[2023-01-18 17:01:46Z INFO ActionManifestManager] Input 'secretId': default value evaluate result: ""
+[2023-01-18 17:01:46Z INFO ActionManifestManager] Input 'githubToken': default value evaluate result: ""
+[2023-01-18 17:01:46Z INFO ActionManifestManager] Input 'kubernetesTokenPath': default value evaluate result: {
+  "type": 0,
+  "file": 3,
+  "line": 38,
+  "col": 14,
+  "lit": "/var/run/secrets/kubernetes.io/serviceaccount/token"
+}
+[2023-01-18 17:01:46Z INFO ActionManifestManager] Input 'authPayload': default value evaluate result: ""
+[2023-01-18 17:01:46Z INFO ActionManifestManager] Input 'extraHeaders': default value evaluate result: ""
+[2023-01-18 17:01:46Z INFO ActionManifestManager] Input 'exportEnv': default value evaluate result: {
+  "type": 0,
+  "file": 3,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2023-01-18 17:01:46Z INFO ActionManifestManager] Input 'exportToken': default value evaluate result: {
+  "type": 0,
+  "file": 3,
+  "line": 51,
+  "col": 14,
+  "lit": "false"
+}
+[2023-01-18 17:01:46Z INFO ActionManifestManager] Input 'caCertificate': default value evaluate result: ""
+[2023-01-18 17:01:46Z INFO ActionManifestManager] Input 'clientCertificate': default value evaluate result: ""
+[2023-01-18 17:01:46Z INFO ActionManifestManager] Input 'clientKey': default value evaluate result: ""
+[2023-01-18 17:01:46Z INFO ActionManifestManager] Input 'jwtPrivateKey': default value evaluate result: ""
+[2023-01-18 17:01:46Z INFO ActionManifestManager] Input 'jwtKeyPassword': default value evaluate result: ""
+[2023-01-18 17:01:46Z INFO ActionManifestManager] Input 'jwtGithubAudience': default value evaluate result: ""
+[2023-01-18 17:01:46Z INFO ActionManifestManager] Input 'jwtTtl': default value evaluate result: {
+  "type": 0,
+  "file": 3,
+  "line": 78,
+  "col": 14,
+  "lit": "3600"
+}
+[2023-01-18 17:01:46Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2023-01-18 17:01:46Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2023-01-18 17:01:46Z INFO ActionCommandManager] Register action command extension for command set-env
+[2023-01-18 17:01:46Z INFO ActionCommandManager] Register action command extension for command set-output
+[2023-01-18 17:01:46Z INFO ActionCommandManager] Register action command extension for command save-state
+[2023-01-18 17:01:46Z INFO ActionCommandManager] Register action command extension for command add-path
+[2023-01-18 17:01:46Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2023-01-18 17:01:46Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2023-01-18 17:01:46Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2023-01-18 17:01:46Z INFO ActionCommandManager] Register action command extension for command warning
+[2023-01-18 17:01:46Z INFO ActionCommandManager] Register action command extension for command error
+[2023-01-18 17:01:46Z INFO ActionCommandManager] Register action command extension for command notice
+[2023-01-18 17:01:46Z INFO ActionCommandManager] Register action command extension for command debug
+[2023-01-18 17:01:46Z INFO ActionCommandManager] Register action command extension for command group
+[2023-01-18 17:01:46Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2023-01-18 17:01:46Z INFO ActionCommandManager] Register action command extension for command echo
+[2023-01-18 17:01:46Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:46Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:46Z INFO HostContext] Well known directory 'Externals': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/externals'
+[2023-01-18 17:01:46Z INFO ProcessInvokerWrapper] Starting process:
+[2023-01-18 17:01:46Z INFO ProcessInvokerWrapper]   File name: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/externals/node16/bin/node'
+[2023-01-18 17:01:46Z INFO ProcessInvokerWrapper]   Arguments: '"/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions/hashicorp/vault-action/v2/dist/index.js"'
+[2023-01-18 17:01:46Z INFO ProcessInvokerWrapper]   Working directory: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/vault-action-exampleapp/vault-action-exampleapp'
+[2023-01-18 17:01:46Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-01-18 17:01:46Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-01-18 17:01:46Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-01-18 17:01:46Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-01-18 17:01:46Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-01-18 17:01:46Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-01-18 17:01:46Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-01-18 17:01:46Z INFO ProcessInvokerWrapper] Process started with process id 3963, waiting for process exit.
+[2023-01-18 17:01:46Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a60052d4-79a0-5821-3eeb-84adb9872c5b', success rate: 1/1.
+[2023-01-18 17:01:46Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0c134453-1b3c-597f-9b43-d26a5693f23c', success rate: 1/1.
+[2023-01-18 17:01:46Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2023-01-18 17:01:46Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0c134453-1b3c-597f-9b43-d26a5693f23c', success rate: 1/1.
+[2023-01-18 17:01:49Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:49Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:49Z INFO ProcessInvokerWrapper] Finished process 3963 with exit code 1, and elapsed time 00:00:03.4381983.
+[2023-01-18 17:01:49Z INFO CreateStepSummaryCommand] Step Summary file (/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_temp/_runner_file_commands/step_summary_8ee00ed0-f9a2-462c-9ee6-237380d75f34) is empty; skipping attachment upload
+[2023-01-18 17:01:49Z INFO StepsRunner] Step result: Failed
+[2023-01-18 17:01:49Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "hashicorp/vault-action",
+  "ref": "v2",
+  "type": "node16",
+  "stage": "Main",
+  "stepId": "0c134453-1b3c-597f-9b43-d26a5693f23c",
+  "stepContextName": "__hashicorp_vault-action",
+  "hasPreStep": false,
+  "hasPostStep": false,
+  "result": "failed",
+  "errorMessages": [
+    "Cannot read properties of undefined (reading 'statusCode')"
+  ],
+  "executionTimeInSeconds": 4,
+  "startTime": "2023-01-18T17:01:46.039254Z",
+  "finishTime": "2023-01-18T17:01:49.509395Z"
+}.
+[2023-01-18 17:01:49Z INFO StepsRunner] Update job result with current step result 'Failed'.
+[2023-01-18 17:01:49Z INFO StepsRunner] Current state: job state = 'Failed'
+[2023-01-18 17:01:49Z INFO StepsRunner] Processing step: DisplayName='Build Docker Image'
+[2023-01-18 17:01:49Z INFO StepsRunner] Evaluating: success()
+[2023-01-18 17:01:49Z INFO StepsRunner] Result: false
+[2023-01-18 17:01:49Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2023-01-18 17:01:49Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2023-01-18 17:01:49Z INFO StepsRunner] Current state: job state = 'Failed'
+[2023-01-18 17:01:49Z INFO StepsRunner] Processing step: DisplayName='Post Run actions/checkout@v3'
+[2023-01-18 17:01:49Z INFO StepsRunner] Evaluating: always()
+[2023-01-18 17:01:49Z INFO StepsRunner] Result: true
+[2023-01-18 17:01:49Z INFO StepsRunner] Starting the step.
+[2023-01-18 17:01:49Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:49Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:49Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:49Z INFO HostContext] Well known directory 'Actions': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions'
+[2023-01-18 17:01:49Z INFO ActionManager] Load action that reference repository from '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions/actions/checkout/v3'
+[2023-01-18 17:01:49Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:49Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:49Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:49Z INFO HostContext] Well known directory 'Actions': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions'
+[2023-01-18 17:01:49Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 58,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 62,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 71,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2023-01-18 17:01:49Z INFO ActionManager] Action pre node.js file: N/A.
+[2023-01-18 17:01:49Z INFO ActionManager] Action node.js file: dist/index.js.
+[2023-01-18 17:01:49Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2023-01-18 17:01:49Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:49Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:49Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:49Z INFO HostContext] Well known directory 'Temp': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_temp'
+[2023-01-18 17:01:49Z INFO ExecutionContext] Write event payload to /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_temp/_github_workflow/event.json
+[2023-01-18 17:01:49Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:49Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:49Z INFO HostContext] Well known directory 'Work': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work'
+[2023-01-18 17:01:49Z INFO HostContext] Well known directory 'Temp': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_temp'
+[2023-01-18 17:01:49Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2023-01-18 17:01:49Z INFO ActionManifestManager] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "aphuang2013/vault-action-exampleapp"
+}
+[2023-01-18 17:01:49Z INFO ActionManifestManager] Input 'ref': default value evaluate result: ""
+[2023-01-18 17:01:49Z INFO ActionManifestManager] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2023-01-18 17:01:49Z INFO ActionManifestManager] Input 'ssh-key': default value evaluate result: ""
+[2023-01-18 17:01:49Z INFO ActionManifestManager] Input 'ssh-known-hosts': default value evaluate result: ""
+[2023-01-18 17:01:49Z INFO ActionManifestManager] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2023-01-18 17:01:49Z INFO ActionManifestManager] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 50,
+  "col": 14,
+  "lit": "true"
+}
+[2023-01-18 17:01:49Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2023-01-18 17:01:49Z INFO ActionManifestManager] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 55,
+  "col": 14,
+  "lit": "true"
+}
+[2023-01-18 17:01:49Z INFO ActionManifestManager] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 58,
+  "col": 14,
+  "lit": "1"
+}
+[2023-01-18 17:01:49Z INFO ActionManifestManager] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 61,
+  "col": 14,
+  "lit": "false"
+}
+[2023-01-18 17:01:49Z INFO ActionManifestManager] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 70,
+  "col": 14,
+  "lit": "false"
+}
+[2023-01-18 17:01:49Z INFO ActionManifestManager] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2023-01-18 17:01:49Z INFO ActionManifestManager] Input 'github-server-url': default value evaluate result: ""
+[2023-01-18 17:01:49Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2023-01-18 17:01:49Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2023-01-18 17:01:49Z INFO ActionCommandManager] Register action command extension for command set-env
+[2023-01-18 17:01:49Z INFO ActionCommandManager] Register action command extension for command set-output
+[2023-01-18 17:01:49Z INFO ActionCommandManager] Register action command extension for command save-state
+[2023-01-18 17:01:49Z INFO ActionCommandManager] Register action command extension for command add-path
+[2023-01-18 17:01:49Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2023-01-18 17:01:49Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2023-01-18 17:01:49Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2023-01-18 17:01:49Z INFO ActionCommandManager] Register action command extension for command warning
+[2023-01-18 17:01:49Z INFO ActionCommandManager] Register action command extension for command error
+[2023-01-18 17:01:49Z INFO ActionCommandManager] Register action command extension for command notice
+[2023-01-18 17:01:49Z INFO ActionCommandManager] Register action command extension for command debug
+[2023-01-18 17:01:49Z INFO ActionCommandManager] Register action command extension for command group
+[2023-01-18 17:01:49Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2023-01-18 17:01:49Z INFO ActionCommandManager] Register action command extension for command echo
+[2023-01-18 17:01:49Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:49Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:49Z INFO HostContext] Well known directory 'Externals': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/externals'
+[2023-01-18 17:01:49Z INFO ProcessInvokerWrapper] Starting process:
+[2023-01-18 17:01:49Z INFO ProcessInvokerWrapper]   File name: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/externals/node16/bin/node'
+[2023-01-18 17:01:49Z INFO ProcessInvokerWrapper]   Arguments: '"/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_actions/actions/checkout/v3/dist/index.js"'
+[2023-01-18 17:01:49Z INFO ProcessInvokerWrapper]   Working directory: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/vault-action-exampleapp/vault-action-exampleapp'
+[2023-01-18 17:01:49Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-01-18 17:01:49Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-01-18 17:01:49Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-01-18 17:01:49Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-01-18 17:01:49Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-01-18 17:01:49Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-01-18 17:01:49Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-01-18 17:01:49Z INFO ProcessInvokerWrapper] Process started with process id 4065, waiting for process exit.
+[2023-01-18 17:01:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0c134453-1b3c-597f-9b43-d26a5693f23c', success rate: 1/1.
+[2023-01-18 17:01:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'cec03157-b066-42ee-a530-77194505a480', success rate: 1/1.
+[2023-01-18 17:01:49Z INFO AddMaskCommandExtension] Add new secret mask with length of 32
+[2023-01-18 17:01:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'cec03157-b066-42ee-a530-77194505a480', success rate: 1/1.
+[2023-01-18 17:01:50Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'cec03157-b066-42ee-a530-77194505a480', success rate: 1/1.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Finished process 4065 with exit code 0, and elapsed time 00:00:01.0933608.
+[2023-01-18 17:01:50Z INFO CreateStepSummaryCommand] Step Summary file (/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_temp/_runner_file_commands/step_summary_40bf668b-81cb-405b-9cd1-da6c3fc6ce35) is empty; skipping attachment upload
+[2023-01-18 17:01:50Z INFO StepsRunner] Step result: 
+[2023-01-18 17:01:50Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v3",
+  "type": "node16",
+  "stage": "Post",
+  "stepId": "cec03157-b066-42ee-a530-77194505a480",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 2,
+  "startTime": "2023-01-18T17:01:49.510727Z",
+  "finishTime": "2023-01-18T17:01:50.618897Z"
+}.
+[2023-01-18 17:01:50Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2023-01-18 17:01:50Z INFO StepsRunner] Current state: job state = 'Failed'
+[2023-01-18 17:01:50Z INFO JobRunner] Finalize job.
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Diag': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_diag'
+[2023-01-18 17:01:50Z INFO JobExtension] Initialize Env context
+[2023-01-18 17:01:50Z INFO JobExtension] Initialize steps context
+[2023-01-18 17:01:50Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2023-01-18 17:01:50Z INFO JobExtension] Total accessible running process: 422.
+[2023-01-18 17:01:50Z INFO JobExtension] Inspecting process environment variables. PID: 3990 (mdworker_shared)
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 3990 -o command`
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Starting process:
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 3990 -o command'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Working directory: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Process started with process id 4172, waiting for process exit.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Finished process 4172 with exit code 0, and elapsed time 00:00:00.0226290.
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Successfully dump environment variables for 3990
+[2023-01-18 17:01:50Z INFO JobExtension] Inspecting process environment variables. PID: 3959 (mdworker_shared)
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 3959 -o command`
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Starting process:
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 3959 -o command'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Working directory: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Process started with process id 4173, waiting for process exit.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Finished process 4173 with exit code 0, and elapsed time 00:00:00.0137442.
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Successfully dump environment variables for 3959
+[2023-01-18 17:01:50Z INFO JobExtension] Inspecting process environment variables. PID: 3953 (mdworker_shared)
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 3953 -o command`
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Starting process:
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 3953 -o command'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Working directory: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Process started with process id 4174, waiting for process exit.
+[2023-01-18 17:01:50Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9c124cab-265c-4d5a-aa2c-e37c0b0354a3', success rate: 1/1.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Finished process 4174 with exit code 0, and elapsed time 00:00:00.0281767.
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Successfully dump environment variables for 3953
+[2023-01-18 17:01:50Z INFO JobExtension] Inspecting process environment variables. PID: 3952 (mdworker_shared)
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 3952 -o command`
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Starting process:
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 3952 -o command'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Working directory: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Process started with process id 4176, waiting for process exit.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Finished process 4176 with exit code 0, and elapsed time 00:00:00.0154537.
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Successfully dump environment variables for 3952
+[2023-01-18 17:01:50Z INFO JobExtension] Inspecting process environment variables. PID: 3951 (mdworker_shared)
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 3951 -o command`
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Starting process:
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 3951 -o command'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Working directory: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Process started with process id 4177, waiting for process exit.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Finished process 4177 with exit code 0, and elapsed time 00:00:00.0142016.
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Successfully dump environment variables for 3951
+[2023-01-18 17:01:50Z INFO JobExtension] Inspecting process environment variables. PID: 3950 (mdworker_shared)
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 3950 -o command`
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Starting process:
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 3950 -o command'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Working directory: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Process started with process id 4179, waiting for process exit.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Finished process 4179 with exit code 0, and elapsed time 00:00:00.0192368.
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Successfully dump environment variables for 3950
+[2023-01-18 17:01:50Z INFO JobExtension] Inspecting process environment variables. PID: 3948 (mdworker_shared)
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 3948 -o command`
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Starting process:
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 3948 -o command'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Working directory: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Process started with process id 4180, waiting for process exit.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Finished process 4180 with exit code 0, and elapsed time 00:00:00.0138217.
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Successfully dump environment variables for 3948
+[2023-01-18 17:01:50Z INFO JobExtension] Inspecting process environment variables. PID: 3946 (mdworker_shared)
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 3946 -o command`
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Starting process:
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 3946 -o command'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Working directory: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Process started with process id 4182, waiting for process exit.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Finished process 4182 with exit code 0, and elapsed time 00:00:00.0315844.
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Successfully dump environment variables for 3946
+[2023-01-18 17:01:50Z INFO JobExtension] Inspecting process environment variables. PID: 3940 (mdworker_shared)
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 3940 -o command`
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Starting process:
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 3940 -o command'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Working directory: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Process started with process id 4183, waiting for process exit.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Finished process 4183 with exit code 0, and elapsed time 00:00:00.0166658.
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Successfully dump environment variables for 3940
+[2023-01-18 17:01:50Z INFO JobExtension] Inspecting process environment variables. PID: 3934 (mdworker_shared)
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 3934 -o command`
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Starting process:
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 3934 -o command'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Working directory: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Process started with process id 4185, waiting for process exit.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Finished process 4185 with exit code 0, and elapsed time 00:00:00.0243834.
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Successfully dump environment variables for 3934
+[2023-01-18 17:01:50Z INFO JobExtension] Inspecting process environment variables. PID: 3879 (mdworker_shared)
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 3879 -o command`
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Starting process:
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 3879 -o command'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Working directory: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Process started with process id 4186, waiting for process exit.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Finished process 4186 with exit code 0, and elapsed time 00:00:00.0157015.
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Successfully dump environment variables for 3879
+[2023-01-18 17:01:50Z INFO JobExtension] Inspecting process environment variables. PID: 3877 (mdworker_shared)
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 3877 -o command`
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Starting process:
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 3877 -o command'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Working directory: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Process started with process id 4187, waiting for process exit.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Finished process 4187 with exit code 0, and elapsed time 00:00:00.0137060.
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Successfully dump environment variables for 3877
+[2023-01-18 17:01:50Z INFO JobExtension] Inspecting process environment variables. PID: 3643 (mdworker_shared)
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 3643 -o command`
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Starting process:
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 3643 -o command'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Working directory: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Process started with process id 4188, waiting for process exit.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Finished process 4188 with exit code 0, and elapsed time 00:00:00.0236702.
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Successfully dump environment variables for 3643
+[2023-01-18 17:01:50Z INFO JobExtension] Inspecting process environment variables. PID: 3641 (mdworker_shared)
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 3641 -o command`
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Starting process:
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 3641 -o command'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Working directory: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Process started with process id 4190, waiting for process exit.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Finished process 4190 with exit code 0, and elapsed time 00:00:00.0166440.
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Successfully dump environment variables for 3641
+[2023-01-18 17:01:50Z INFO JobExtension] Inspecting process environment variables. PID: 3617 (mdworker_shared)
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 3617 -o command`
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:50Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Starting process:
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 3617 -o command'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Working directory: '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Process started with process id 4191, waiting for process exit.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2023-01-18 17:01:50Z INFO ProcessInvokerWrapper] Finished process 4191 with exit code 0, and elapsed time 00:00:00.0305259.
+[2023-01-18 17:01:50Z INFO LinuxProcessExtensions] Successfully dump environment variables for 3617
+[2023-01-18 17:01:51Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "complete_job",
+  "type": "runner",
+  "stage": "Post",
+  "stepId": "9c124cab-265c-4d5a-aa2c-e37c0b0354a3",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2023-01-18T17:01:50.644238Z",
+  "finishTime": "2023-01-18T17:01:51.006732Z"
+}.
+[2023-01-18 17:01:51Z INFO JobRunner] Job result after all job steps finish: Failed
+[2023-01-18 17:01:51Z INFO JobRunner] Completing the job execution context.
+[2023-01-18 17:01:51Z INFO JobRunner] Shutting down the job server queue.
+[2023-01-18 17:01:51Z INFO JobServerQueue] Fire signal to shutdown all queues.
+[2023-01-18 17:01:51Z INFO JobServerQueue] All queue process task stopped.
+[2023-01-18 17:01:51Z INFO JobServerQueue] Web console line queue drained.
+[2023-01-18 17:01:51Z INFO JobServerQueue] Uploading 3 files in one shot.
+[2023-01-18 17:01:52Z INFO JobServerQueue] Try to upload 3 log files or attachments, success rate: 3/3.
+[2023-01-18 17:01:52Z INFO JobServerQueue] File upload queue drained.
+[2023-01-18 17:01:52Z INFO JobServerQueue] Starting results-based upload queue...
+[2023-01-18 17:01:52Z INFO JobServerQueue] Results summary upload queue drained.
+[2023-01-18 17:01:52Z INFO JobServerQueue] Timeline update queue drained.
+[2023-01-18 17:01:52Z INFO JobServerQueue] Disposing job server ...
+[2023-01-18 17:01:52Z INFO JobServerQueue] All queue process tasks have been stopped, and all queues are drained.
+[2023-01-18 17:01:52Z INFO TempDirectoryManager] Cleaning runner temp folder: /Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_work/_temp
+[2023-01-18 17:01:52Z INFO HostContext] Well known directory 'Bin': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/bin'
+[2023-01-18 17:01:52Z INFO HostContext] Well known directory 'Root': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner'
+[2023-01-18 17:01:52Z INFO HostContext] Well known directory 'Diag': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_diag'
+[2023-01-18 17:01:52Z INFO HostContext] Well known config file 'Telemetry': '/Users/peterhuang/Desktop/workspace/tf/aws/hcpa/actions-runner/_diag/.telemetry'
+[2023-01-18 17:01:52Z INFO JobRunner] Raising job completed event
+[2023-01-18 17:01:52Z INFO Worker] Job completed.
