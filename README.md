@@ -1,1 +1,1 @@
-trying with git action - changing stuff
+trying with git action - changing stuff -no namespace support
