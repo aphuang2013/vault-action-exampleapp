@@ -12,9 +12,12 @@ jobs:
           url: https://hpe-cdrm-hcp-vault-cluster-public-vault-3ffbc799.cf52b2ca.z1.hashicorp.cloud:8200
           tlsSkipVerify: true
           namespace: admin
-          token: hvs.CAESIJedUUCNlCuZ59b80RdL-yBYzRlnuqW71sgyJUHlnmxeGigKImh2cy53dnQ0RnBqQjhzYk5UaWQzUGJWSWtnTksuazB6SHcQloAB
+          caCertificate: \${{ secrets.VAULT_CA_CERT }}
+          namespace: admin
+          method: token
+          token: \${{ secrets.VAULT_TOKEN }}
           secrets: |
-            secret/data/secret1 key1
+            secret/secret1 key1
       - name: Build Docker Image
         run: docker build . --file Dockerfile --build-arg app_secret="${{ env.APP_SECRET }}" -t vault-action-exampleapp
       - name: Build Docker Image
