@@ -9,10 +9,9 @@ jobs:
       - name: Import Secrets
         uses: hashicorp/vault-action@v2
         with:
-          url: https://hpe-hcp-vault-cluster-public-vault-e39badf3.e063269b.z1.hashicorp.cloud:8200
+          url: https://hpe-cdrm-hcp-vault-cluster-public-vault-3ffbc799.cf52b2ca.z1.hashicorp.cloud:8200
           tlsSkipVerify: true
           token: \${{ secrets.VAULT_TOKEN }}
-          namespace: admin/devops2
           secrets: |
             secret/data/secret1 key1
       - name: Build Docker Image
