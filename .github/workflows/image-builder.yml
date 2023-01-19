@@ -13,7 +13,6 @@ jobs:
           tlsSkipVerify: true
           namespace: admin
           caCertificate: \${{ secrets.VAULT_CA_CERT }}
-          namespace: admin
           method: token
           token: \${{ secrets.VAULT_TOKEN }}
           secrets: |
