@@ -11,8 +11,8 @@ jobs:
         with:
           url: https://hpe-cdrm-hcp-vault-cluster-public-vault-3ffbc799.cf52b2ca.z1.hashicorp.cloud:8200
           tlsSkipVerify: true
+          namespace: admin
           token: \${{ secrets.VAULT_TOKEN }}
-	  namespace: admin
           secrets: |
             secret/data/secret1 key1
       - name: Build Docker Image
